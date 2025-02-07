@@ -48,7 +48,7 @@ export class PokemonService {
       pokemon = await this.pokemonModel.findOne({ no: +searchTerm })  
     }
     
-    if( isValidObjectId( searchTerm ) ) {
+    if( !pokemon && isValidObjectId( searchTerm ) ) {
       pokemon = await this.pokemonModel.findById( searchTerm );
     }
 
