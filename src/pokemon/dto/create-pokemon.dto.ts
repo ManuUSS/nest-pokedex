@@ -5,11 +5,11 @@ export class CreatePokemonDto {
   @IsInt()
   @IsPositive()
   @Min(1)
-  readonly no: number;
+  public no: number;
   
   @IsString()
   @MinLength(1)
-  readonly name: string;
+  public name: string;
   
   
 }
