@@ -2,8 +2,7 @@ import {
   BadRequestException, 
   Injectable, 
   InternalServerErrorException, 
-  NotFoundException, 
-  Query 
+  NotFoundException,
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { isValidObjectId, Model } from 'mongoose';
@@ -37,8 +36,15 @@ export class PokemonService {
   }
 
 
-  findAll( @Query() paginationDto:PaginationDto ) {
-    return this.pokemonModel.find();
+  findAll( paginationDto:PaginationDto ) {
+
+    const { limit = 10, offset = 0 } = paginationDto;
+
+    return this.pokemonModel.find()
+      .skip( offset )
+      .limit( limit )
+      .sort({ no: 1 })
+      .select('-__v')
   }
 
   async findOne(searchTerm:string) {
