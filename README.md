@@ -25,7 +25,7 @@ docker-compose up -d
 http://localhost:3000/api/v2/seed
 ```
 
-6. See the .env.template file and set the corresponding env variables
+6. See the .env.template file and create a new .env file with the correct values
 
 ### Tech stack
 * MongoDB
