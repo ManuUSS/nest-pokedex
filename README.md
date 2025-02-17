@@ -25,6 +25,8 @@ docker-compose up -d
 http://localhost:3000/api/v2/seed
 ```
 
+6. See the .env.template file and set the corresponding env variables
+
 ### Tech stack
 * MongoDB
 * Nest
